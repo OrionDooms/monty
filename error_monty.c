@@ -19,11 +19,11 @@ void Error_open_file(char *str)
 }
 /**
  * file_contains_an_invalid_instruction - the file contains an invalid
- * iinstruction.
+ * instruction.
  */
-void file_contains_an_invalid_instruction(void)
+void file_contains_an_invalid_instruction(unsigned int line)
 {
-	printf("L<line_number>: unknown instruction <opcode> \n");
+	printf("L%d: unknown instruction <opcode> \n", line);
 	exit(EXIT_FAILURE);
 }
 /**

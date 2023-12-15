@@ -56,17 +56,10 @@ int execute(char *buffer, stack_t **stack, unsigned int line)
 		token = strtok(NULL, delimit);
 	}
 	if (strcmp(result[0], "push") == 0)
-	{
 		my_push(*stack, atoi(result[1]), line);
-		printf("%s\n", result[0]);
-		 printf("%d\n", atoi(result[1]));
-	}
 	if (strcmp(result[0], "pall") == 0)
-	{
-		printf("%s\n", result[0]);
 		my_pall(*stack);
-	}
 	else
-		printf("NO");
+		file_contains_an_invalid_instruction(line);
 	return (0);
 }

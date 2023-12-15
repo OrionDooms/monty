@@ -33,7 +33,7 @@ int execute(char *buffer, stack_t **stack, unsigned int line);
 int my_pall(stack_t *head);
 void Error_file_and_argument(void);
 void Error_open_file(char *str);
-void file_contains_an_invalid_instruction(void);
+void file_contains_an_invalid_instruction(unsigned int line);
 void cant_malloc(void);
 size_t getline(char **lineptr, size_t *n, FILE *stream);
 
