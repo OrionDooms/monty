@@ -5,10 +5,9 @@
  * @line: the line number.
  * Return: return a linked list;
  */
-stack_t pop(stack_t *head, char *line)
+stack_t pop(stack_t *head, unsigned int line)
 {
 	stack_t *current;
-	int current_data;
 
 	if (head == NULL)
 	{
@@ -18,9 +17,9 @@ stack_t pop(stack_t *head, char *line)
 	else
 	{
 		current = head;
-		current_data = head->n;
 		head = head->next;
 		free(current);
 	}
-	return (head);
+	return (*head);
+
 }

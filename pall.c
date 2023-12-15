@@ -1,17 +1,19 @@
 #include "monty.h"
 /**
- * print_stact - prints all the elements of the stack.
+ * my_pall - prints all the elements of the stack.
  * @head: head of the linked list.
+ * Return: 0 (success).
  */
-void pall(stack_t *head)
+int my_pall(stack_t *head)
 {
 	stack_t *current = head;
 
 	if (head == NULL)
-		printf("");
+		return (0);
 	while (current != NULL)
 	{
 		printf("%d\n", current->n);
 		current = current->next;
 	}
+	return (0);
 }

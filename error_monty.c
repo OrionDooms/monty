@@ -1,19 +1,20 @@
 #include "monty.h"
 /**
- * no_file_and_more_argument - If the user does not give any file
+ * Error_file_and_argument - If the user does not give any file
  * or more than one argument to your program.
  */
-void no_file_and_more_argument(void)
+void Error_file_and_argument(void)
 {
-	printf("USAGE: monty file\n");
+	fprintf(stderr, "USAGE: monty file\n");
 	exit(EXIT_FAILURE);
 }
 /**
- * cant_open_the_file - it’s not possible to open the file.
+ * Error_open_file - it’s not possible to open the file.
+ * @str: The name of the file.
  */
-void cant_open_the_file(void)
+void Error_open_file(char *str)
 {
-	printf("Error: Can't open file <file> \n");
+	fprintf(stderr, "Error: Can't open file %s\n", str);
 	exit(EXIT_FAILURE);
 }
 /**

@@ -4,7 +4,7 @@
  * @head: head of a linked linked list.
  * @line: the line number.
  */
-void pint(stack_t *head, int *line)
+void pint(stack_t *head, unsigned int line)
 {
 	if (head == NULL)
 	{
