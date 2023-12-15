@@ -20,6 +20,7 @@ void Error_open_file(char *str)
 /**
  * file_contains_an_invalid_instruction - the file contains an invalid
  * instruction.
+ * @line: number of lines
  */
 void file_contains_an_invalid_instruction(unsigned int line)
 {
