@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
+
 /**
  * main - Programming a stack.
  * @argc: number of argument
@@ -11,7 +11,6 @@
  */
 int main(int argc, char **argv)
 {
-	stack_t *stack = NULL;
 	char *buffer = NULL;
 	size_t bufsize = 0;
 	unsigned int i = 0;
@@ -28,7 +27,7 @@ int main(int argc, char **argv)
 	{
 		getline(&buffer, &bufsize, stdin);
 		i++;
-		execute(buffer, &stack, i);
+		execute(buffer, i);
 	}
 	free(buffer);
 	fclose(file);
@@ -37,28 +36,28 @@ int main(int argc, char **argv)
 /**
  * execute - the execute of the stack.
  * @buffer: the argument.
- * @stack: the linked list.
  * @line: line number.
  * Return: 0 (success)
  */
-int execute(char *buffer, stack_t **stack, unsigned int line)
+int execute(char *buffer, unsigned int line)
 {
+	stack_t *stack = NULL;
+
 	char *token;
 	int i = 0;
-	const char delimit[] = " \t";
-	char result[100][100];
+	const char delimit[] = " ";
+	char *args[MAX_ARGS];
 
 	token = strtok(buffer, delimit);
-	while (token != NULL && i < 100)
+	while (token != NULL && i < MAX_ARGS - 1)
 	{
-		strcpy(result[i], token);
-		i++;
+		args[i++] = token;
 		token = strtok(NULL, delimit);
 	}
-	if (strcmp(result[0], "push") == 0)
-		my_push(*stack, atoi(result[1]), line);
-	if (strcmp(result[0], "pall") == 0)
-		my_pall(*stack);
+	if (strcmp(args[0], "push") == 0)
+		my_push(&stack, atoi(args[1]));
+	else if (strcmp(args[0], "pall") == 0)
+		my_pall(stack);
 	else
 		file_contains_an_invalid_instruction(line);
 	return (0);

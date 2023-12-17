@@ -4,33 +4,28 @@
  * my_push - pushes an element to the stack.
  * @head: head of a linked list.
  * @data: is an integer.
- * @line: line number.
  * Return: a linked list.
  */
-stack_t my_push(stack_t *head, int data, unsigned int line)
+stack_t my_push(stack_t **head, int data)
 {
-	stack_t *new_node, *last;
+	stack_t *h, *new_node = malloc(sizeof(stack_t));
 
-	if (!data)
+	if (*head == NULL)
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", line);
-		exit(EXIT_FAILURE);
-	}
-	new_node = malloc(sizeof(stack_t));
-	new_node->n = data;
-	new_node->next = NULL;
-	if (head == NULL)
-	{
+		new_node->next = NULL;
 		new_node->prev = NULL;
-		head = new_node;
-		return (*head);
+		new_node->n = data;
+		*head = new_node;
+		return (**head);
 	}
-	last = head;
-	while (last->next != NULL)
+	else
 	{
-		last = last->next;
+		h = *head;
+		new_node->n = data;
+		new_node->prev = NULL;
+		new_node->next = *head;
+		h->prev = new_node;
+		*head = new_node;
+		return (**head);
 	}
-	last->next = new_node;
-	new_node->prev = last;
-	return (*new_node);
 }

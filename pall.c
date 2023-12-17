@@ -7,6 +7,7 @@
 int my_pall(stack_t *head)
 {
 	stack_t *current = head;
+	int i = 0;
 
 	if (head == NULL)
 		return (0);
@@ -14,6 +15,7 @@ int my_pall(stack_t *head)
 	{
 		printf("%d\n", current->n);
 		current = current->next;
+		i++;
 	}
-	return (0);
+	return (i);
 }
