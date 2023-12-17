@@ -9,19 +9,19 @@
  * @argv: Takes a argument.
  * Return: 0 (Success) 1 (Error)
  */
-int main(int argc, char **argv)
+int main(/*int argc, char **argv*/)
 {
 	char *buffer = NULL;
 	size_t bufsize = 0;
 	unsigned int i = 0;
 
-	FILE *file;
+	/*FILE *file;
 
 	if (argc != 2)
 		Error_file_and_argument();
 	file = fopen(argv[1], "r");
 	if (!file)
-		Error_open_file(argv[1]);
+		Error_open_file(argv[1]);*/
 	buffer = NULL;
 	while (1)
 	{
@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 		execute(buffer, i);
 	}
 	free(buffer);
-	fclose(file);
+	/*fclose(file);*/
 	return (0);
 }
 /**
